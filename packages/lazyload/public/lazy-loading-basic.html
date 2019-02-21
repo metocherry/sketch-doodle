@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lazy Loading Basic</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        position: relative;
+        object-fit: cover;
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img
+        id="test"
+        data-src="http://blogfiles.naver.net/20111123_298/dkdlzkfflrnt_1322055140310sPJfQ_JPEG/111123_iu_7241932_1_%283%29.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://blogfiles.naver.net/20120130_246/geo_pass_1327905374447BB3EU_JPEG/%BE%C6%C0%CC%C0%AF_%C1%C1%C0%BA%B3%AF_%C3%CA%C8%B8%BB%FD%BB%EA%C7%D1%C1%A4%C6%C7.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://post.phinf.naver.net/MjAxODAyMjFfMjI0/MDAxNTE5MTc1NzU0MDg4.5xGNyqbqfaQpnczm632i95pgeh0uMPSLT_dxWAUEx7kg.HMjLFqf0e41v6xv6b-yeyYGVLcQO0CsfUArb8nRFwaYg.JPEG/I1IKGA2358TfJxEQpHgqcjf8Ywto.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://img.phinf.pholar.net/20150903_66/1441288305308LHGlp_JPEG/p"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://cafefiles.naver.net/20150909_217/jhjup4590_1441728518816C35wy_JPEG/%BE%C6%C0%CC%C0%AF_%C2%DE%BE%C6%BB%EF%C3%CC6.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://cafefiles.naver.net/20131014_207/rengar9898_1381748226442bINbJ_PNG/-1833978423.png"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://imgnews.naver.net/image/109/2011/08/29/201108291611773165_1.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://imgnews.naver.net/image/5026/2012/01/16/2012011635466233.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://blogfiles.naver.net/20111201_288/johnseyoung_1322744934836qN5lY_JPEG/5.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        data-src="http://cafefiles.naver.net/20130102_299/swag2016_13571381376136DcEk_JPEG/%B8%D3%B8%AE%BC%D2%C8%F1.jpg"
+        alt=""
+      />
+    </div>
+    <script>
+      function isInViewport(element) {
+        const viewport_height = document.documentElement.clientHeight;
+        const viewport_width = document.documentElement.clientWidth;
+        const dimension = element.getBoundingClientRect();
+
+        if (!dimension.width || !dimension.height) {
+          return false;
+        }
+
+        const top = dimension.top >= 0 && dimension.top < viewport_height;
+        const bottom =
+          dimension.bottom >= 0 && dimension.bottom < viewport_height;
+        const left = dimension.left >= 0 && dimension.left < viewport_width;
+        const right = dimension.right >= 0 && dimension.right < viewport_width;
+        return (top || bottom) && (left || right);
+      }
+
+      const images = Array.from(document.querySelectorAll("img"));
+      document.addEventListener("scroll", () => {
+        images.forEach(image => {
+          if (isInViewport(image)) {
+            image.addEventListener("load", () => {
+              images.splice(images.indexOf(image), 1);
+            });
+
+            image.src = image.dataset.src;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -40,6 +40,14 @@ leran create [package_name]
 - `lerna diff [package]` : Diff all packages or a single package since the last release.
 - `lerna run [script]` : Run an npm script in each package that contains that script.
 - `lerna ls` : List all of the public packages in the current Lerna repo.
+- `lerna add [module_name]`
+  - `--hoist`
+  - `--scope [package_name]`
+  ```javascript
+  lerna add karma
+  lerna add karma --hoist
+  lerna add karma --scope witty-mew-lazyload
+  ```
 
 ### lerna.json
 
@@ -51,3 +59,7 @@ leran create [package_name]
 - `command.bootstrap.npmClientArgs` : array of strings that will be passed as arguments directly to npm install during the `lerna bootstrap` command.
 - `command.bootstrap.scope` : an array of globs that restricts which packages will be bootstrapped when running the `lerna bootstrap` command.
 - `packages` : Array of globs to use as package locations.
+
+## References
+
+- [Monorepo with lerna](http://playnode.io/2017/slides/playnode2017_monorepo_with_lerna.pdf)

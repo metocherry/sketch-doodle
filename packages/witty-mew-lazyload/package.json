@@ -1,55 +1,56 @@
 {
-  "name": "witty-mew-lazyload",
-  "version": "0.0.1",
-  "description": "lazyload library with vanilla script ",
-  "keywords": [
-    "lazyload"
-  ],
-  "author": "jinseok.choi <metocherry@gmail.com>",
-  "homepage": "https://github.com/metocherry/sketch-doodle#readme",
-  "license": "MIT",
-  "main": "lib/witth-mew-lazyload.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/metocherry/sketch-doodle.git"
-  },
-  "scripts": {
-    "build:main": "babel src -d lib/main",
-    "build:test": "babel test -d lib/test",
-    "bundle:main": "npm run build:main && rollup -c",
-    "bundle:test": "npm run build:main && npm run build:test && rollup -c rollup.test.config.js",
-    "test": "karma start --singleRun"
-  },
-  "bugs": {
-    "url": "https://github.com/metocherry/sketch-doodle/issues"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.3",
-    "@babel/plugin-proposal-class-properties": "^7.3.3",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
-    "@babel/preset-env": "^7.3.1",
-    "gulp": "^4.0.0",
-    "jasmine-core": "^3.3.0",
-    "karma": "^4.0.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.2",
-    "karma-jasmine": "^2.0.1",
-    "karma-mocha-reporter": "^2.2.5",
-    "karma-rollup-preprocessor": "^7.0.0",
-    "puppeteer": "^1.12.2",
-    "rollup": "^1.2.3",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.2.1",
-    "rollup-plugin-istanbul": "^2.0.1",
-    "rollup-plugin-multi-entry": "^2.1.0",
-    "rollup-plugin-node-resolve": "^4.0.1"
-  }
+    "name": "witty-mew-lazyload",
+    "version": "0.0.1",
+    "description": "lazyload library with vanilla script ",
+    "keywords": [
+        "lazyload"
+    ],
+    "author": "jinseok.choi <metocherry@gmail.com>",
+    "homepage": "https://github.com/metocherry/sketch-doodle#readme",
+    "license": "MIT",
+    "main": "lib/witth-mew-lazyload.js",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "files": [
+        "lib"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/metocherry/sketch-doodle.git"
+    },
+    "scripts": {
+        "build:main": "babel src -d lib/main",
+        "build:test": "babel test -d lib/test",
+        "bundle:main": "npm run build:main && rollup -c",
+        "bundle:test": "npm run build:main && npm run build:test && rollup -c rollup.test.config.js",
+        "test": "karma start --singleRun"
+    },
+    "bugs": {
+        "url": "https://github.com/metocherry/sketch-doodle/issues"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.3.3",
+        "@babel/plugin-proposal-class-properties": "^7.3.3",
+        "@babel/plugin-proposal-decorators": "^7.3.0",
+        "@babel/preset-env": "^7.3.1",
+        "babel-plugin-module-resolver": "^3.2.0",
+        "gulp": "^4.0.0",
+        "jasmine-core": "^3.3.0",
+        "karma": "^4.0.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.2",
+        "karma-jasmine": "^2.0.1",
+        "karma-mocha-reporter": "^2.2.5",
+        "karma-rollup-preprocessor": "^7.0.0",
+        "puppeteer": "^1.12.2",
+        "rollup": "^1.2.3",
+        "rollup-plugin-babel": "^4.3.2",
+        "rollup-plugin-commonjs": "^9.2.1",
+        "rollup-plugin-istanbul": "^2.0.1",
+        "rollup-plugin-multi-entry": "^2.1.0",
+        "rollup-plugin-node-resolve": "^4.0.1"
+    }
 }

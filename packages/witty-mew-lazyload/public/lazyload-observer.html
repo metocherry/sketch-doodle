@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lazy Loading Basic</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .root {
+        position: relative;
+        display: flex;
+      }
+
+      .column {
+        flex: 1 1 33%;
+        max-width: 33%;
+      }
+
+      .image-box {
+        position: relative;
+        margin: 0.25rem;
+        overflow: hidden;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0.25rem;
+      }
+
+      .image-box img {
+        min-width: 100%;
+        opacity: 1;
+        transition: opacity 2s ease-in-out;
+      }
+
+      .image-box img.preview {
+        filter: blur(8px);
+        /* filter: blur(2vw);
+        transform: scale(1.05); */
+      }
+
+      .image-box img.reveal {
+        left: 0;
+        top: 0;
+        will-change: transform, opacity;
+        animation: reveal 1s ease-out;
+      }
+
+      @keyframes reveal {
+        0% {
+          transform: scale(1.05);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <div class="column">
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_01.jpg" src="./images/tiny/iu_01.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_02.jpg" src="./images/tiny/iu_02.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_03.jpg" src="./images/tiny/iu_03.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_04.jpg" src="./images/tiny/iu_04.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_05.jpg" src="./images/tiny/iu_05.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_06.jpg" src="./images/tiny/iu_06.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_07.jpg" src="./images/tiny/iu_07.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_08.jpg" src="./images/tiny/iu_08.jpg" />
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const io = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove("preview");
+            img.classList.add("reveal");
+
+            observer.unobserve(img);
+          });
+        });
+
+        Array.from(document.querySelectorAll("img")).forEach(box => {
+          io.observe(box);
+        });
+      });
+    </script>
+  </body>
+</html>

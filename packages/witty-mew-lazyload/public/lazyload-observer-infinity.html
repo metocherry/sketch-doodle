@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lazy Loading Basic</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .root {
+        position: relative;
+        display: flex;
+      }
+
+      .column {
+        flex: 1 1 33%;
+        max-width: 33%;
+      }
+
+      .image-box {
+        position: relative;
+        margin: 0.25rem;
+        overflow: hidden;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0.25rem;
+      }
+
+      .image-box img {
+        min-width: 100%;
+        opacity: 1;
+        transition: opacity 2s ease-in-out;
+      }
+
+      .image-box img.preview {
+        filter: blur(8px);
+        /* filter: blur(2vw);
+        transform: scale(1.05); */
+      }
+
+      .image-box img.reveal {
+        left: 0;
+        top: 0;
+        will-change: transform, opacity;
+        animation: reveal 1s ease-out;
+      }
+
+      @keyframes reveal {
+        0% {
+          transform: scale(1.05);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <div class="column"></div>
+    </div>
+    <p id="sentinel" style="height: 10px;"></p>
+    <script>
+      const items = [
+        { original: "./images/original/iu_01.jpg", tiny: "./images/tiny/iu_01.jpg" },
+        { original: "./images/original/iu_02.jpg", tiny: "./images/tiny/iu_02.jpg" },
+        { original: "./images/original/iu_03.jpg", tiny: "./images/tiny/iu_03.jpg" },
+        { original: "./images/original/iu_04.jpg", tiny: "./images/tiny/iu_04.jpg" },
+        { original: "./images/original/iu_05.jpg", tiny: "./images/tiny/iu_05.jpg" },
+        { original: "./images/original/iu_06.jpg", tiny: "./images/tiny/iu_06.jpg" },
+        { original: "./images/original/iu_07.jpg", tiny: "./images/tiny/iu_07.jpg" },
+        { original: "./images/original/iu_08.jpg", tiny: "./images/tiny/iu_08.jpg" }
+      ];
+
+      const max_count = 20;
+      let count = 0;
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const io = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            addItem();
+          });
+        });
+
+        io.observe(document.getElementById("sentinel"));
+
+        function addItem() {
+          const fragment = document.createDocumentFragment();
+
+          for (let i = 0; i < 8; i++) {
+            const div = document.createElement("div");
+            div.setAttribute("class", "image-box");
+
+            const img = document.createElement("img");
+            img.setAttribute("class", "reveal");
+            img.src = items[i].original;
+
+            div.appendChild(img);
+            fragment.appendChild(div);
+          }
+
+          document.querySelector(".column").appendChild(fragment);
+        }
+      });
+    </script>
+  </body>
+</html>

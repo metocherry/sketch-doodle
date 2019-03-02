@@ -14,6 +14,26 @@ Benefits:
 - progressively-enhanced to work in older browsers
 - easy to use
 
+## Usage
+
+```javascript
+lazyload
+  .create({
+    root: document,
+    elements: document.querySelectorAll("img"),
+    threshold: 0
+  })
+  .on("enter", (entries, observer) => {
+    // to do
+  })
+  .on("leave", (entries, observer) => {
+    // to do
+  })
+  .on("error", error => {
+    // to do
+  });
+```
+
 ## 문서구조
 
 - 사용자의 화면에 보여지는 영역을 `viewport`라고한다.

@@ -96,10 +96,15 @@
       </div>
     </div>
     <script>
+      function isIntersecting(entry) {
+        return entry.intersectionRatio > 0;
+      }
+
       document.addEventListener("DOMContentLoaded", () => {
         const io = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
-            if (!entry.isIntersecting) {
+            // entry.isIntersecting
+            if (!isIntersecting(entry)) {
               return;
             }
 
@@ -108,7 +113,7 @@
             img.classList.remove("preview");
             img.classList.add("reveal");
 
-            observer.unobserve(img);
+            // observer.unobserve(img);
           });
         });
 

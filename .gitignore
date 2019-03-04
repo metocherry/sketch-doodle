@@ -13,3 +13,6 @@
 
 # Log
 *.log
+
+# Cache
+.jest

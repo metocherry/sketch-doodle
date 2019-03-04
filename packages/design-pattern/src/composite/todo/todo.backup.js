@@ -1,0 +1,61 @@
+// const Task = class {
+//   static get(title, date = null) {
+//     return new Task(title, date);
+//   }
+
+//   constructor(title, date) {
+//     this._title = title;
+//     this._date = date;
+//     this._isComplete = false;
+//     this._list = [];
+//   }
+
+//   add(title, date = null) {
+//     this._list.push(Task.get(title, date));
+//   }
+
+//   remove(task) {
+//     const list = this._list;
+//     if (list.includes(task)) {
+//       list.splice(list.indexOf(task), 1);
+//     }
+//   }
+
+//   isComplete() {
+//     return this._isComplete;
+//   }
+
+//   toggle() {
+//     this.isComplete = !this.isComplete;
+//   }
+
+//   byTitle(stateGroup = true) {
+//     return this.list("title", stateGroup);
+//   }
+
+//   byDate(stateGroup = true) {
+//     return this.list("date", stateGroup);
+//   }
+
+//   list(sort, stateGroup = true) {
+//     const list = this._list;
+//     const f = (a, b) => a[sort] > b[sort];
+//     const map = task => task.list(sort, stateGroup);
+
+//     return {
+//       task: this,
+//       list: !stateGroup
+//         ? [...list].sort(f).map(map)
+//         : [
+//             ...list
+//               .filter(v => !v.isComplete())
+//               .sort(f)
+//               .map(map),
+//             ...list
+//               .filter(v => v.isComplete())
+//               .sort(f)
+//               .map(map)
+//           ]
+//     };
+//   }
+// };

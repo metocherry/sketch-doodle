@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Lazy Loading Basic</title>
+    <title>Lazyload Implement</title>
     <style>
       html,
       body {
@@ -95,73 +95,46 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@11.0.2/dist/lazyload.min.js"></script>
     <script>
-      function Lazyload() {
-        this.hooks = {};
-        this.ids = {};
-
-        this.io = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry, index) => {
-              if (!this.ids[index]) {
-                this.ids[index] = { is: false };
-              }
-
-              if (!this.isIntersecting(entry)) {
-                if (this.ids[index].is) {
-                  this.hooks.leave(entry, observer);
-                }
-                return;
-              }
-
-              this.ids[index].is = true;
-              this.hooks.enter(entry, observer);
-
-              // const img = entry.target;
-              // img.src = img.dataset.src;
-              // img.classList.remove("preview");
-              // img.classList.add("reveal");
-              // observer.unobserve(img);
-            });
-          },
-          { threshold: 0 }
-        );
-
-        Array.from(document.querySelectorAll("img")).forEach(box => {
-          this.io.observe(box);
-        });
+      function logElementEvent(eventName, element) {
+        console.log(Date.now(), eventName, element.getAttribute("data-src"));
       }
-
-      Lazyload.prototype.on = function on(event_name, event_iteratee) {
-        // console.log(`on${event_name.charAt(0).toUpperCase() + event_name.slice(1)}`);
-        this.hooks[event_name] = event_iteratee;
-        return this;
+      var callback_enter = function(element) {
+        logElementEvent("--> ENTERED", element);
       };
-
-      Lazyload.prototype.isIntersecting = function isIntersecting(entry) {
-        return entry.intersectionRatio > 0;
-        // return entry.isIntersecting || entry.intersectionRatio > 0;
+      var callback_exit = function(element) {
+        logElementEvent("<-- EXITED", element);
       };
-
-      function lazyload() {}
-      lazyload.create = function create() {
-        console.log("create");
-        return new Lazyload();
+      var callback_reveal = function(element) {
+        logElementEvent("-o- REVEALED", element);
+      };
+      var callback_loaded = function(element) {
+        logElementEvent("-O- LOADED", element);
+      };
+      var callback_error = function(element) {
+        logElementEvent("::: ERROR", element);
+        element.src = "https://via.placeholder.com/440x560/?text=Error+Placeholder";
+      };
+      var callback_finish = function() {
+        logElementEvent("\\o/ FINISHED", document.documentElement);
       };
 
       document.addEventListener("DOMContentLoaded", () => {
-        lazyload
-          .create()
-          .on("enter", (entry, observer) => {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.remove("preview");
-            img.classList.add("reveal");
-            // observer.unobserve(img);
-          })
-          .on("leave", (entry, observer) => {
-            console.log("leave", entry);
-          });
+        const lazy = new LazyLoad({
+          container: document,
+          elements_selector: "img",
+          data_src: "src",
+          data_srcset: "src",
+          class_loading: "preview",
+          class_loaded: "reveal",
+          callback_enter: callback_enter,
+          callback_exit: callback_exit,
+          callback_reveal: callback_reveal,
+          callback_loaded: callback_loaded,
+          callback_error: callback_error,
+          callback_finish: callback_finish
+        });
       });
     </script>
   </body>

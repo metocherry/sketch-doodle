@@ -70,35 +70,35 @@
     <div class="root">
       <div class="column">
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_01.jpg" src="./images/tiny/iu_01.jpg" />
+          <img id="img_1" class="preview" data-src="./images/original/iu_01.jpg" src="./images/tiny/iu_01.jpg" />
         </div>
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_02.jpg" src="./images/tiny/iu_02.jpg" />
+          <img id="img_2" class="preview" data-src="./images/original/iu_02.jpg" src="./images/tiny/iu_02.jpg" />
         </div>
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_03.jpg" src="./images/tiny/iu_03.jpg" />
+          <img id="img_3" class="preview" data-src="./images/original/iu_03.jpg" src="./images/tiny/iu_03.jpg" />
         </div>
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_04.jpg" src="./images/tiny/iu_04.jpg" />
+          <img id="img_4" class="preview" data-src="./images/original/iu_04.jpg" src="./images/tiny/iu_04.jpg" />
         </div>
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_05.jpg" src="./images/tiny/iu_05.jpg" />
+          <img id="img_5" class="preview" data-src="./images/original/iu_05.jpg" src="./images/tiny/iu_05.jpg" />
         </div>
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_06.jpg" src="./images/tiny/iu_06.jpg" />
+          <img id="img_6" class="preview" data-src="./images/original/iu_06.jpg" src="./images/tiny/iu_06.jpg" />
         </div>
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_07.jpg" src="./images/tiny/iu_07.jpg" />
+          <img id="img_7" class="preview" data-src="./images/original/iu_07.jpg" src="./images/tiny/iu_07.jpg" />
         </div>
         <div class="image-box">
-          <img class="preview" data-src="./images/original/iu_08.jpg" src="./images/tiny/iu_08.jpg" />
+          <img id="img_8" class="preview" data-src="./images/original/iu_08.jpg" src="./images/tiny/iu_08.jpg" />
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@11.0.2/dist/lazyload.min.js"></script>
     <script>
       function logElementEvent(eventName, element) {
-        console.log(Date.now(), eventName, element.getAttribute("data-src"));
+        console.log(Date.now(), eventName, element.getAttribute("data-src"), element.id);
       }
       var callback_enter = function(element) {
         logElementEvent("--> ENTERED", element);

@@ -1,0 +1,32 @@
+{
+  "name": "rx-js",
+  "version": "0.0.1",
+  "description": "study rxjs",
+  "keywords": [
+    "rxjs"
+  ],
+  "author": "jinseok.choi <metocherry@gmail.com>",
+  "homepage": "https://github.com/metocherry/sketch-doodle#readme",
+  "license": "MIT",
+  "main": "lib/rx-js.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metocherry/sketch-doodle.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/metocherry/sketch-doodle/issues"
+  },
+  "dependencies": {
+    "rxjs": "^6.4.0"
+  }
+}

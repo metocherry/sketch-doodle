@@ -93,6 +93,30 @@
         <div class="image-box">
           <img class="preview" data-src="./images/original/iu_08.jpg" src="./images/tiny/iu_08.jpg" />
         </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_01.jpg" src="./images/tiny/iu_01.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_02.jpg" src="./images/tiny/iu_02.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_03.jpg" src="./images/tiny/iu_03.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_04.jpg" src="./images/tiny/iu_04.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_05.jpg" src="./images/tiny/iu_05.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_06.jpg" src="./images/tiny/iu_06.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_07.jpg" src="./images/tiny/iu_07.jpg" />
+        </div>
+        <div class="image-box">
+          <img class="preview" data-src="./images/original/iu_08.jpg" src="./images/tiny/iu_08.jpg" />
+        </div>
       </div>
     </div>
     <script>
@@ -102,26 +126,17 @@
 
         this.io = new IntersectionObserver(
           (entries, observer) => {
+            console.log(entries);
             entries.forEach((entry, index) => {
-              if (!this.ids[index]) {
-                this.ids[index] = { is: false };
+              if (this.isIntersecting(entry)) {
+                this.setEntityData(entry.target, true);
+                this.hooks.enter(entry, observer);
+              } else if (this.hasReveal(entry.target)) {
+                this.setEntityData(entry.target, false);
+                this.hooks.leave(entry, observer);
+              } else {
+                this.setEntityData(entry.target, false);
               }
-
-              if (!this.isIntersecting(entry)) {
-                if (this.ids[index].is) {
-                  this.hooks.leave(entry, observer);
-                }
-                return;
-              }
-
-              this.ids[index].is = true;
-              this.hooks.enter(entry, observer);
-
-              // const img = entry.target;
-              // img.src = img.dataset.src;
-              // img.classList.remove("preview");
-              // img.classList.add("reveal");
-              // observer.unobserve(img);
             });
           },
           { threshold: 0 }
@@ -133,19 +148,28 @@
       }
 
       Lazyload.prototype.on = function on(event_name, event_iteratee) {
-        // console.log(`on${event_name.charAt(0).toUpperCase() + event_name.slice(1)}`);
         this.hooks[event_name] = event_iteratee;
         return this;
       };
 
       Lazyload.prototype.isIntersecting = function isIntersecting(entry) {
-        return entry.intersectionRatio > 0;
-        // return entry.isIntersecting || entry.intersectionRatio > 0;
+        return entry.isIntersecting || entry.intersectionRatio > 0;
+      };
+
+      Lazyload.prototype.setEntityData = function setEntityData(element, is_processed = false) {
+        element.setAttribute("data-is-reveal", is_processed);
+      };
+
+      Lazyload.prototype.hasReveal = function hasReveal(element) {
+        return element.dataset.isReveal !== undefined;
+      };
+
+      Lazyload.prototype.isReveal = function isReveal(element) {
+        return Boolean(element.dataset.isReveal) === true;
       };
 
       function lazyload() {}
       lazyload.create = function create() {
-        console.log("create");
         return new Lazyload();
       };
 
@@ -153,6 +177,7 @@
         lazyload
           .create()
           .on("enter", (entry, observer) => {
+            console.log("[event::enter]");
             const img = entry.target;
             img.src = img.dataset.src;
             img.classList.remove("preview");
@@ -160,7 +185,7 @@
             // observer.unobserve(img);
           })
           .on("leave", (entry, observer) => {
-            console.log("leave", entry);
+            console.log("[event::leave]");
           });
       });
     </script>

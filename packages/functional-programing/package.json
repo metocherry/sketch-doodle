@@ -1,14 +1,11 @@
 {
-  "name": "rx-js",
+  "name": "functional-programing",
   "version": "0.0.1",
-  "description": "study rxjs",
-  "keywords": [
-    "rxjs"
-  ],
-  "author": "jinseok.choi <metocherry@gmail.com>",
+  "description": "> TODO: description",
+  "author": "metocherry <metocherry@gmail.com>",
   "homepage": "https://github.com/metocherry/sketch-doodle#readme",
   "license": "MIT",
-  "main": "lib/rx-js.js",
+  "main": "lib/functional-programing.js",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -25,9 +22,6 @@
   },
   "bugs": {
     "url": "https://github.com/metocherry/sketch-doodle/issues"
-  },
-  "dependencies": {
-    "rxjs": "^6.4.0"
   },
   "devDependencies": {
     "eslint": "^5.15.1",

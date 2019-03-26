@@ -1,0 +1,35 @@
+{
+  "name": "@sketch/graphql",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "jinseok.choi <cjs@livetax.net>",
+  "homepage": "https://github.com/metocherry/sketch-doodle#readme",
+  "license": "MIT",
+  "main": "lib/graphql.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metocherry/sketch-doodle.git"
+  },
+  "scripts": {
+    "debug": "nodemon --exec babel-node src/server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/metocherry/sketch-doodle/issues"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.17.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "nodemon": "^1.18.10"
+  }
+}

@@ -1,22 +1,19 @@
 {
-  "name": "design-pattern",
+  "name": "@rx-js",
   "version": "0.0.1",
-  "description": "study design pattern with javascript",
+  "description": "study rxjs",
   "keywords": [
-    "javascript",
-    "design-pattern"
+    "rxjs"
   ],
   "author": "jinseok.choi <metocherry@gmail.com>",
   "homepage": "https://github.com/metocherry/sketch-doodle#readme",
   "license": "MIT",
-  "main": "lib/design-pattern.js",
+  "main": "lib/rx-js.js",
   "directories": {
-    "src": "src",
     "lib": "lib",
     "test": "test"
   },
   "files": [
-    "src",
     "lib"
   ],
   "repository": {
@@ -24,31 +21,21 @@
     "url": "git+https://github.com/metocherry/sketch-doodle.git"
   },
   "scripts": {
-    "test": "jest --config ./jest.config.js",
-    "test:watch": "jest --config ./jest.config.js --watch"
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/metocherry/sketch-doodle/issues"
   },
+  "dependencies": {
+    "rxjs": "^6.4.0"
+  },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
-    "@babel/preset-env": "^7.3.4",
-    "@types/jest": "^24.0.9",
-    "@types/node": "^11.10.4",
-    "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
-    "jest": "^24.1.0",
-    "prettier": "^1.16.4",
-    "ts-jest": "^24.0.0",
-    "tslint": "^5.13.1",
-    "tslint-config-airbnb": "^5.11.1",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.3.3333"
+    "prettier": "^1.16.4"
   }
 }

@@ -22,7 +22,14 @@ lerna init
 **Create package**
 
 ```bash
-leran create [package_name]
+lerna create [package_name]
+```
+
+**Add package**
+
+```bash
+lerna add <package>[@version] [--dev] [--exact]
+lerna add graphql-yoga --scope=graphql
 ```
 
 ### Commands

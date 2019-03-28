@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { ClarityModule } from '@clr/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +15,11 @@ import { LayoutModule } from './presentation/layout/layout.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     UIModule,
-    LayoutModule
+    LayoutModule,
+    ClarityModule
   ],
   providers: [],
   bootstrap: [AppComponent]

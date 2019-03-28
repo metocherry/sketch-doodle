@@ -1,0 +1,14 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "@angular7-schematics": {
+      "description": "A blank schematic.",
+      "factory": "./@angular7-schematics/index#@angular7Schematics"
+    },
+    "model": {
+      "description": "Generate model",
+      "factory": "./bigdata-schematics/index#model",
+      "schema": "./bigdata-schematics/schema.json"
+    }
+  }
+}

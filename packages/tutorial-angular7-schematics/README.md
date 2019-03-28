@@ -40,4 +40,10 @@ ng g bigdata-schematics:model model/user --props=id:string,name:string,age:numbe
 # 템플릿 사용
 ```
 
+```json
+"ng-add": {
+  "description": "Add @clr"
+}
+```
+
 That's it!

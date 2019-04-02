@@ -1,0 +1,28 @@
+@import "codemirror/lib/codemirror.css";
+@import "tui-editor/dist/tui-editor.css";
+@import "tui-editor/dist/tui-editor-contents.css";
+@import "highlight.js/styles/github.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  height: inherit;
+
+  &-tools {
+    position: relative;
+    height: 50px;
+  }
+
+  &-markdown {
+    position: relative;
+    height: calc(100% - 50px);
+  }
+}

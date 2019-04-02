@@ -1,0 +1,12 @@
+# Project
+dist
+
+# Editor
+.vscode
+.idea
+
+# Modules
+node_modules
+
+# Cache
+.cache

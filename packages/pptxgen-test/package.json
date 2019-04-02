@@ -1,0 +1,26 @@
+{
+  "name": "pptxgen-test",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "jinseok.choi <metocherry@gmail.com>",
+  "homepage": "https://github.com/metocherry/sketch-doodle#readme",
+  "license": "ISC",
+  "main": "lib/pptxgen-test.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metocherry/sketch-doodle.git"
+  },
+  "scripts": {
+    "create": "node scripts/create.js"
+  },
+  "bugs": {
+    "url": "https://github.com/metocherry/sketch-doodle/issues"
+  }
+}

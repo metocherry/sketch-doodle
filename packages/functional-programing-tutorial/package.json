@@ -1,0 +1,35 @@
+{
+  "name": "functional-programing-tutorial",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "metocherry <metocherry@gmail.com>",
+  "homepage": "https://github.com/metocherry/sketch-doodle#readme",
+  "license": "MIT",
+  "main": "lib/functional-programing.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metocherry/sketch-doodle.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/metocherry/sketch-doodle/issues"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  }
+}
